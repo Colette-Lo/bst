@@ -1,4 +1,4 @@
-class Node():
+class Node:
     def __init__(self, value):
         self.left = None
         self.right = None
@@ -34,7 +34,7 @@ class BinTree:
 
         found = False
         while found is False:
-            if search_term < current_node:
+            if search_term < current_node.value:
                 if current_node.left is not None:
                     current_node = current_node.left
                 else:
@@ -43,4 +43,17 @@ class BinTree:
                 found = True
                 return True
             else:
-                current_node = current_node.right
+                if current_node.right is not None:
+                    current_node = current_node.right
+                else:
+                    return False
+
+
+new_tree = BinTree()
+
+numList = [17, 8, 4, 12, 22, 19, 14, 5, 30, 25]
+
+for item in numList:
+    new_tree.add_node(item)
+
+print(new_tree.search_value(25))
